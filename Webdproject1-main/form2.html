@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://kit.fontawesome.com/471ca36fa1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+
+            <h1 id="title">Sign Up</h1>
+
+            <form action="process_login.php" method="post" onsubmit="return checkempty()">
+
+                <div class="input-group">
+
+                    <div class="input-field" id="namefield">
+                        <i class="fa-solid fa-user"></i>
+
+                        <input type="text" placeholder="Name">
+
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="password">
+
+
+                    </div>
+                    <p>Lost password <a href="#">Click Here!</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="submit" id="signupbtn">Sign Up</button>
+                    <button type="submit" class="disable" id="signinbtn">Sign In</button>
+                    <input class="">
+                </div>
+                <div id="hello"></div>
+            </form>
+        </div>
+        <script>
+            function checkempty() {
+                n = /[0-9]/;
+                a = /[a-z]/;
+                AA = /[A-Z]/;
+                c = /[!@#$%^&*]/;
+                aa = document.getElementById('password').value;
+                if (aa == "") {
+                    document.getElementById('hello').innerHTML = "PASSWORD IS MANDATORY"
+                    return false;
+                } else if (aa.length < 8) {
+                    document.getElementById('hello').innerHTML = "PASSWORD LENGTH IS MUST BE 8 OR ABOVE"
+                    return false;
+                } else if (!n.test(aa)) {
+                    document.getElementById('hello').innerHTML = "PASSWORD MUST CONTAIN NUMBER"
+                    return false;
+                } else if (!a.test(aa)) {
+                    document.getElementById('hello').innerHTML = "PASSWORD MUST SMALL CONTAIN ALPHABET"
+                    return false;
+                } else if (!AA.test(aa)) {
+                    document.getElementById('hello').innerHTML = "PASSWORD MUST CAPITAL CONTAIN ALPHABET"
+                    return false;
+                } else if (!c.test(aa)) {
+                    document.getElementById('hello').innerHTML = "PASSWORD MUST CONTAIN SPECIAL CHARACTER"
+                    return false;
+                }
+                window.location.href = 'index.html';
+                return false;
+            }
+
+        </script>
+</body>
+
+</html>
